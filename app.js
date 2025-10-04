@@ -11,7 +11,10 @@ const orderRouter = require('./routers/orderRouter');
 const app = express();
 
 app.use(compression());
-app.use(cors());
+app.use(cors({
+    origin: 'https://burgerbuilder2426.netlify.app',
+    credentials: true // if sending cookies or auth headers
+}));
 app.use(express.json());
 app.use('/user', userRouter);
 app.use('/orders', orderRouter);
